@@ -13,7 +13,10 @@ public static class ServicesInstaller
              .AddDbContext<InventoryDBContext>(
                 options =>
                 {
-                    options.UseSqlServer(configuration.GetConnectionString("InventoryConnectionString"));
+                    options.UseSqlServer(configuration.GetConnectionString("InventoryConnectionString"), sqlServeroptions =>
+                    {
+                        sqlServeroptions.EnableRetryOnFailure();
+                    });
                 })
              .AddScoped<IInventoryRepository, InventoryRepository>();
     }

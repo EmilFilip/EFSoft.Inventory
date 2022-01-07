@@ -29,6 +29,18 @@ public class InventoryModel
             stockLeft: stockLeft);
     }
 
+    public void DecreaseInventoryStock(
+        int productQuantity)
+    {
+        StockLeft = StockLeft - productQuantity;
+    }
+
+    public void IncreaseInventoryStock(
+        int productQuantity)
+    {
+        StockLeft = StockLeft + productQuantity;
+    }
+
     public Guid ProductInventoryId { get; set; }
 
     public Guid ProductId { get; set; }
