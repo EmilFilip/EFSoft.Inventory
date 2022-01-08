@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AzureFunctionsVersion>v4</AzureFunctionsVersion>
@@ -9,8 +9,8 @@
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EFSoft.Orders.Application\EFSoft.Orders.Application.csproj" />
-    <ProjectReference Include="..\EFSoft.Orders.Infrastructure\EFSoft.Orders.Infrastructure.csproj" />
+    <ProjectReference Include="..\EFSoft.Inventory.Application\EFSoft.Inventory.Application.csproj" />
+    <ProjectReference Include="..\EFSoft.Inventory.Infrastructure\EFSoft.Inventory.Infrastructure.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">

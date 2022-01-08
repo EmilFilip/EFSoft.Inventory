@@ -1,5 +1,3 @@
-using Newtonsoft.Json;
-
 namespace EFSoft.InventoryStock.Function
 {
     public class InventoryTopicTrigger
@@ -21,7 +19,7 @@ namespace EFSoft.InventoryStock.Function
         {
             _logger.LogInformation($"C# ServiceBus topic trigger function processed message: {myTopicMessage}");
 
-            var orderPlacedMessage = JsonConvert.DeserializeObject<OrderPlaced>(myTopicMessage);  //JsonSerializer.Deserialize<OrderPlaced>(myTopicMessage);
+            var orderPlacedMessage = JsonSerializer.Deserialize<OrderPlaced>(myTopicMessage);
 
             var parameters = new DecreaseInventoryStockCommandParameters(
                 productId: orderPlacedMessage.ProductId,

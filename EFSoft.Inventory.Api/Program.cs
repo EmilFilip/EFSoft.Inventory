@@ -1,4 +1,4 @@
-using EFSoft.Orders.Infrastructure.Configuration;
+using EFSoft.Inventory.Infrastructure.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 

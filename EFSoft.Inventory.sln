@@ -5,11 +5,11 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFSoft.Inventory.Api", "EFSoft.Inventory.Api\EFSoft.Inventory.Api.csproj", "{8411E185-9F1D-4DD1-BD56-BEA688532662}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFSoft.Orders.Application", "EFSoft.Orders.Application\EFSoft.Orders.Application.csproj", "{A5AC4E17-3BF3-44B4-ADE5-2FD5D67223F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFSoft.Inventory.Application", "EFSoft.Inventory.Application\EFSoft.Inventory.Application.csproj", "{A5AC4E17-3BF3-44B4-ADE5-2FD5D67223F5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFSoft.Orders.Domain", "EFSoft.Orders.Domain\EFSoft.Orders.Domain.csproj", "{46340DB7-F98D-40F1-AA79-34592F42F158}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFSoft.Inventory.Domain", "EFSoft.Inventory.Domain\EFSoft.Inventory.Domain.csproj", "{46340DB7-F98D-40F1-AA79-34592F42F158}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFSoft.Orders.Infrastructure", "EFSoft.Orders.Infrastructure\EFSoft.Orders.Infrastructure.csproj", "{FA67F9F8-C361-4504-8B88-DFDACECF8416}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFSoft.Inventory.Infrastructure", "EFSoft.Inventory.Infrastructure\EFSoft.Inventory.Infrastructure.csproj", "{FA67F9F8-C361-4504-8B88-DFDACECF8416}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFSoft.Inventory.Stock.Function", "EFSoft.Inventory.Stock.Function\EFSoft.Inventory.Stock.Function.csproj", "{3EBEA8F0-9B3C-4023-A46D-FE49E50B402A}"
 EndProject
