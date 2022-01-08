@@ -9,12 +9,12 @@ public class InventoryRepository : IInventoryRepository
         _inventoryDbContext = inventoryDbContext;
     }
 
-    public async Task<InventoryModel> GetInventoryAsync(
-        Guid productInventory,
+    public async Task<ProductInventoryModel> GetProductInventoryAsync(
+        Guid productId,
         CancellationToken cancellationToken = default)
     {
         var entity = await _inventoryDbContext.Inventories.FirstOrDefaultAsync(
-            p => p.ProductInventoryId == productInventory,
+            p => p.ProductId == productId,
             cancellationToken: cancellationToken);
 
         if (entity == null)
@@ -25,8 +25,8 @@ public class InventoryRepository : IInventoryRepository
         return MapToDomain(entity);
     }
 
-    public async Task CreateInventoryAsync(
-        InventoryModel inventory,
+    public async Task CreateProductInventoryAsync(
+        ProductInventoryModel inventory,
         CancellationToken cancellationToken = default)
     {
         var entity = MapToEntity(inventory);
@@ -37,8 +37,8 @@ public class InventoryRepository : IInventoryRepository
             .SaveChangesAsync(cancellationToken);
     }
 
-    public async Task UpdateInventoryAsync(
-        InventoryModel inventory,
+    public async Task UpdateProductInventoryAsync(
+        ProductInventoryModel inventory,
         CancellationToken cancellationToken = default)
     {
         var entity = await _inventoryDbContext.Inventories.FindAsync(
@@ -55,17 +55,17 @@ public class InventoryRepository : IInventoryRepository
         }
     }
 
-    private static InventoryModel MapToDomain(
+    private static ProductInventoryModel MapToDomain(
         ProductInventory entityCustomer)
     {
-        return new InventoryModel(
+        return new ProductInventoryModel(
             productInventoryId: entityCustomer.ProductInventoryId,
             productId: entityCustomer.ProductId,
             stockLeft: entityCustomer.StockLeft);
     }
 
     private static ProductInventory MapToEntity(
-        InventoryModel domainCustomer)
+        ProductInventoryModel domainCustomer)
     {
         return new ProductInventory
         {

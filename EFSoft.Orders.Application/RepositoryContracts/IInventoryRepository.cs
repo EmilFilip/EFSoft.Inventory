@@ -2,15 +2,15 @@
 
 public interface IInventoryRepository
 {
-    Task<InventoryModel> GetInventoryAsync(
+    Task<ProductInventoryModel> GetProductInventoryAsync(
         Guid productInventory,
         CancellationToken cancellationToken = default);
 
-    Task CreateInventoryAsync(
-        InventoryModel inventory,
+    Task CreateProductInventoryAsync(
+        ProductInventoryModel inventory,
         CancellationToken cancellationToken = default);
 
-    Task UpdateInventoryAsync(
-        InventoryModel inventory,
+    Task UpdateProductInventoryAsync(
+        ProductInventoryModel inventory,
         CancellationToken cancellationToken = default);
 }

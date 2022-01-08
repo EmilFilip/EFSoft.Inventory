@@ -12,10 +12,10 @@ public class CreateInventoryCommandHandler : ICommandHandler<CreateInventoryComm
     public async Task HandleAsync(
         CreateInventoryCommandParameters command)
     {
-        var inventoryModel = InventoryModel.CreateNew(
+        var inventoryModel = ProductInventoryModel.CreateNew(
             productId: command.ProductId,
             stockLeft: command.StockLeft);
 
-        await _inventoryRepository.CreateInventoryAsync(inventoryModel);
+        await _inventoryRepository.CreateProductInventoryAsync(inventoryModel);
     }
 }

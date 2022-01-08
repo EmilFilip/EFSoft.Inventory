@@ -1,4 +1,4 @@
-﻿namespace EFSoft.Inventory.Api.Configuration;
+﻿namespace EFSoft.Orders.Infrastructure.Configuration;
 
 [ExcludeFromCodeCoverage]
 public static class ServicesInstaller

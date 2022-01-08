@@ -14,7 +14,7 @@ public class GetInventoryQueryHandler :
             GetInventoryQueryParameters parameters,
             CancellationToken cancellationToken = default)
     {
-        var inventory = await _inventoryRepository.GetInventoryAsync(
+        var inventory = await _inventoryRepository.GetProductInventoryAsync(
             parameters.ProductId,
             cancellationToken);
 

@@ -1,8 +1,8 @@
 ﻿namespace EFSoft.Orders.Domain.Models;
 
-public class InventoryModel
+public class ProductInventoryModel
 {
-    public InventoryModel(
+    public ProductInventoryModel(
        Guid productInventoryId,
        Guid productId,
        int stockLeft)
@@ -11,7 +11,7 @@ public class InventoryModel
         ProductId = productId;
         StockLeft = stockLeft;
     }
-    public InventoryModel(
+    public ProductInventoryModel(
         Guid productId,
         int stockLeft)
     {
@@ -19,11 +19,11 @@ public class InventoryModel
         StockLeft = stockLeft;
     }
 
-    public static InventoryModel CreateNew(
+    public static ProductInventoryModel CreateNew(
         Guid productId,
         int stockLeft)
     {
-        return new InventoryModel(
+        return new ProductInventoryModel(
             productInventoryId: Guid.NewGuid(),
             productId: productId,
             stockLeft: stockLeft);

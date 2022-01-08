@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFSoft.Inventory.Api", "EFSoft.Inventory.Api\EFSoft.Inventory.Api.csproj", "{8411E185-9F1D-4DD1-BD56-BEA688532662}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFSoft.Inventory.Api", "EFSoft.Inventory.Api\EFSoft.Inventory.Api.csproj", "{8411E185-9F1D-4DD1-BD56-BEA688532662}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFSoft.Orders.Application", "EFSoft.Orders.Application\EFSoft.Orders.Application.csproj", "{A5AC4E17-3BF3-44B4-ADE5-2FD5D67223F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFSoft.Orders.Application", "EFSoft.Orders.Application\EFSoft.Orders.Application.csproj", "{A5AC4E17-3BF3-44B4-ADE5-2FD5D67223F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFSoft.Orders.Domain", "EFSoft.Orders.Domain\EFSoft.Orders.Domain.csproj", "{46340DB7-F98D-40F1-AA79-34592F42F158}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFSoft.Orders.Domain", "EFSoft.Orders.Domain\EFSoft.Orders.Domain.csproj", "{46340DB7-F98D-40F1-AA79-34592F42F158}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFSoft.Orders.Infrastructure", "EFSoft.Orders.Infrastructure\EFSoft.Orders.Infrastructure.csproj", "{FA67F9F8-C361-4504-8B88-DFDACECF8416}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFSoft.Orders.Infrastructure", "EFSoft.Orders.Infrastructure\EFSoft.Orders.Infrastructure.csproj", "{FA67F9F8-C361-4504-8B88-DFDACECF8416}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFSoft.Inventory.Stock.Function", "EFSoft.Inventory.Stock.Function\EFSoft.Inventory.Stock.Function.csproj", "{3EBEA8F0-9B3C-4023-A46D-FE49E50B402A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{FA67F9F8-C361-4504-8B88-DFDACECF8416}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA67F9F8-C361-4504-8B88-DFDACECF8416}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA67F9F8-C361-4504-8B88-DFDACECF8416}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EBEA8F0-9B3C-4023-A46D-FE49E50B402A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EBEA8F0-9B3C-4023-A46D-FE49E50B402A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EBEA8F0-9B3C-4023-A46D-FE49E50B402A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EBEA8F0-9B3C-4023-A46D-FE49E50B402A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

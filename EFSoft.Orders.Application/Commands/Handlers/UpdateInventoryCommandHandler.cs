@@ -12,10 +12,10 @@ public class UpdateInventoryCommandHandler : ICommandHandler<UpdateInventoryComm
     public async Task HandleAsync(
         UpdateInventoryCommandParameters command)
     {
-        var inventoryModel = new InventoryModel(
+        var inventoryModel = new ProductInventoryModel(
             productId: command.ProductId,
             stockLeft: command.StockLeft);
 
-        await _inventoryRepository.UpdateInventoryAsync(inventoryModel);
+        await _inventoryRepository.UpdateProductInventoryAsync(inventoryModel);
     }
 }
