@@ -1,6 +1,14 @@
-using EFSoft.Inventory.Infrastructure.Configuration;
-
 var builder = WebApplication.CreateBuilder(args);
+
+if (builder.Environment.IsDevelopment())
+{
+    var appConfigurationConnectionString = builder.Configuration.GetValue<string>("AppConfigurationConnectionString");
+
+    builder.Configuration.AddAzureAppConfiguration(config =>
+    {
+        config.Connect(appConfigurationConnectionString);
+    });
+}
 
 // Add services to the container.
 builder.Services.AddControllers();

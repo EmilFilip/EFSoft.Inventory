@@ -41,8 +41,8 @@ public class InventoryRepository : IInventoryRepository
         ProductInventoryModel inventory,
         CancellationToken cancellationToken = default)
     {
-        var entity = await _inventoryDbContext.Inventories.FindAsync(
-            keyValues: new object[] { inventory.ProductInventoryId },
+        var entity = await _inventoryDbContext.Inventories.FirstOrDefaultAsync(
+            p => p.ProductId == inventory.ProductId,
             cancellationToken: cancellationToken);
 
         if (entity != null)

@@ -26,7 +26,7 @@ public class InventoryController : ControllerBase
     }
 
     [HttpGet]
-    [Route("{orderId:guid}")]
+    [Route("{productId:guid}")]
     [ProducesResponseType(typeof(GetInventoryQueryResult), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Get(Guid productId)
