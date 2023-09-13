@@ -1,0 +1,7 @@
+{
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "TopicConnectionString": "Endpoint=sb://efsoft.servicebus.windows.net/;SharedAccessKeyName=OrderPlacedTopicPolicy;SharedAccessKey=vj8E8jy98cXNuAfu4DAqaGBzMYkJ6o36aVDhI3pxNfk=;"
+  }
+}

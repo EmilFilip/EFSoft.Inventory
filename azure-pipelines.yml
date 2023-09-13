@@ -19,13 +19,13 @@ steps:
   displayName: 'Use .NET 6 SDK'
   inputs:
     packageType: 'sdk'
-    version: '6.0.x'
+    version: '7.0.x'
     includePreviewVersions: true
 
 - task: NuGetToolInstaller@1
   displayName: 'Install NuGet Tool'
   inputs:
-    versionSpec: '6.0.x'
+    versionSpec: '6.7.x'
     checkLatest: true
 
 - task: NuGetCommand@2
