@@ -1,6 +1,6 @@
-﻿namespace EFSoft.Inventory.Application.Queries.Results;
+﻿namespace EFSoft.Inventory.Application.Queries.GetInventory;
 
-public class GetInventoryQueryResult : IQueryResult
+public class GetInventoryQueryResult 
 {
     public GetInventoryQueryResult(
         Guid productId,

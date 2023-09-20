@@ -1,6 +1,6 @@
-﻿namespace EFSoft.Inventory.Application.Commands.Handlers;
+﻿namespace EFSoft.Inventory.Application.Commands.UpdateInventory;
 
-public class UpdateInventoryCommandHandler : ICommandHandler<UpdateInventoryCommandParameters>
+public class UpdateInventoryCommandHandler : ICommandHandler<UpdateInventoryCommand>
 {
     private readonly IInventoryRepository _inventoryRepository;
 
@@ -9,8 +9,9 @@ public class UpdateInventoryCommandHandler : ICommandHandler<UpdateInventoryComm
         _inventoryRepository = inventoryRepository ?? throw new ArgumentNullException(nameof(inventoryRepository));
     }
 
-    public async Task HandleAsync(
-        UpdateInventoryCommandParameters command)
+    public async Task Handle(
+        UpdateInventoryCommand command,
+        CancellationToken cancellationToken)
     {
         var inventoryModel = new ProductInventoryModel(
             productId: command.ProductId,

@@ -9,5 +9,6 @@ public class Startup : FunctionsStartup
     {
         IConfiguration configuration = builder.GetContext().Configuration;
         builder.Services.RegisterLocalServices(configuration);
+        builder.Services.RegisterCqrs(typeof(DecreaseInventoryStockCommand).Assembly);
     }
 }

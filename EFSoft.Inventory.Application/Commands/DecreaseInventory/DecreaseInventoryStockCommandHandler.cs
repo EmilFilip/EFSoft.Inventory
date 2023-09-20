@@ -1,6 +1,6 @@
-﻿namespace EFSoft.Inventory.Application.Commands.Handlers;
+﻿namespace EFSoft.Inventory.Application.Commands.DecreaseInventory;
 
-public class DecreaseInventoryStockCommandHandler : ICommandHandler<DecreaseInventoryStockCommandParameters>
+public class DecreaseInventoryStockCommandHandler : ICommandHandler<DecreaseInventoryStockCommand>
 {
     private readonly IInventoryRepository _inventoryRepository;
 
@@ -9,8 +9,9 @@ public class DecreaseInventoryStockCommandHandler : ICommandHandler<DecreaseInve
         _inventoryRepository = inventoryRepository ?? throw new ArgumentNullException(nameof(inventoryRepository));
     }
 
-    public async Task HandleAsync(
-        DecreaseInventoryStockCommandParameters command)
+    public async Task Handle(
+        DecreaseInventoryStockCommand command,
+        CancellationToken cancellationToken)
     {
         var inventoryModel = await _inventoryRepository.GetProductInventoryAsync(
             productInventory: command.ProductId);

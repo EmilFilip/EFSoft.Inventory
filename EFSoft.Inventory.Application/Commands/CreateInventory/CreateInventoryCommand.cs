@@ -1,8 +1,8 @@
-﻿namespace EFSoft.Inventory.Application.Commands.Parameters;
+﻿namespace EFSoft.Inventory.Application.Commands.CreateInventory;
 
-public class CreateInventoryCommandParameters : ICommand
+public class CreateInventoryCommand : ICommand
 {
-    public CreateInventoryCommandParameters(
+    public CreateInventoryCommand(
          Guid productId,
          int stockLeft)
     {

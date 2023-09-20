@@ -1,8 +1,8 @@
-﻿namespace EFSoft.Inventory.Application.Commands.Parameters;
+﻿namespace EFSoft.Inventory.Application.Commands.DecreaseInventory;
 
-public class DecreaseInventoryStockCommandParameters : ICommand
+public class DecreaseInventoryStockCommand : ICommand
 {
-    public DecreaseInventoryStockCommandParameters(
+    public DecreaseInventoryStockCommand(
          Guid productId,
          int stockToSubtract)
     {

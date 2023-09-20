@@ -4,17 +4,11 @@
 [ApiController]
 public class InventoryController : ControllerBase
 {
-    private readonly ICommandExecutor _commandExecutor;
-    private readonly IQueryExecutor _queryExecutor;
+    private readonly IMediator _mediator;
 
-    public InventoryController(
-            ICommandExecutor commandExecutor,
-            IQueryExecutor queryExecutor)
+    public InventoryController(IMediator mediator)
     {
-        _commandExecutor = commandExecutor
-            ?? throw new ArgumentNullException(nameof(commandExecutor));
-        _queryExecutor = queryExecutor
-            ?? throw new ArgumentNullException(nameof(queryExecutor));
+        _mediator = mediator;
 
     }
 
@@ -31,8 +25,7 @@ public class InventoryController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Get(Guid productId)
     {
-        var results = await _queryExecutor.ExecuteAsync<GetInventoryQueryParameters, GetInventoryQueryResult>(
-         new GetInventoryQueryParameters(productId));
+        var results = await _mediator.Send(new GetInventoryQuery(productId));
 
         if (results == null)
         {
@@ -45,9 +38,9 @@ public class InventoryController : ControllerBase
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<IActionResult> Post([FromBody] CreateInventoryCommandParameters parameters)
+    public async Task<IActionResult> Post([FromBody] CreateInventoryCommand parameters)
     {
-        await _commandExecutor.ExecuteAsync(parameters);
+        await _mediator.Send(parameters);
 
         return Ok();
     }
@@ -55,9 +48,9 @@ public class InventoryController : ControllerBase
     [HttpPut()]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<IActionResult> Put([FromBody] UpdateInventoryCommandParameters parameters)
+    public async Task<IActionResult> Put([FromBody] UpdateInventoryCommand parameters)
     {
-        await _commandExecutor.ExecuteAsync(parameters);
+        await _mediator.Send(parameters);
 
         return Ok();
     }

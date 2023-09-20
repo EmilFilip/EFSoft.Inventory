@@ -1,31 +1,29 @@
-namespace EFSoft.InventoryStock.Function
+namespace EFSoft.InventoryStock.Function;
+
+public class InventoryTopicTrigger
 {
-    public class InventoryTopicTrigger
+    private readonly IMediator _mediator;
+    private readonly ILogger<InventoryTopicTrigger> _logger;
+
+    public InventoryTopicTrigger(
+            IMediator commandExecutor,
+            ILogger<InventoryTopicTrigger> logger)
     {
-        private readonly ICommandExecutor _commandExecutor;
-        private readonly ILogger<InventoryTopicTrigger> _logger;
+        _mediator = commandExecutor;
+        _logger = logger;
+    }
 
-        public InventoryTopicTrigger(
-                ICommandExecutor commandExecutor,
-                ILogger<InventoryTopicTrigger> log)
-        {
-            _commandExecutor = commandExecutor
-                ?? throw new ArgumentNullException(nameof(commandExecutor));
-            _logger = log;
-        }
+    [FunctionName("InventoryTopicTrigger")]
+    public async Task Run([ServiceBusTrigger("orderplaced", "InventoryOrderPlaced", Connection = "TopicConnectionString")] string myTopicMessage)
+    {
+        _logger.LogInformation($"ServiceBus topic trigger function processed message: {myTopicMessage}");
 
-        [FunctionName("InventoryTopicTrigger")]
-        public async Task Run([ServiceBusTrigger("orderplaced", "InventoryOrderPlaced", Connection = "TopicConnectionString")] string myTopicMessage)
-        {
-            _logger.LogInformation($"C# ServiceBus topic trigger function processed message: {myTopicMessage}");
+        var orderPlacedMessage = JsonSerializer.Deserialize<OrderPlaced>(myTopicMessage);
 
-            var orderPlacedMessage = JsonSerializer.Deserialize<OrderPlaced>(myTopicMessage);
-
-            var parameters = new DecreaseInventoryStockCommandParameters(
-                productId: orderPlacedMessage.ProductId,
-                stockToSubtract: orderPlacedMessage.Quantity);
-            
-            await _commandExecutor.ExecuteAsync(parameters);
-        }
+        var parameters = new DecreaseInventoryStockCommand(
+            productId: orderPlacedMessage.ProductId,
+            stockToSubtract: orderPlacedMessage.Quantity);
+        
+        await _mediator.Send(parameters);
     }
 }

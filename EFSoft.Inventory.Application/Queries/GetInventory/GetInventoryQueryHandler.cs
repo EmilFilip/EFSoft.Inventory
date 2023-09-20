@@ -1,7 +1,6 @@
-﻿namespace EFSoft.Inventory.Application.Queries.Handlers;
+﻿namespace EFSoft.Inventory.Application.Queries.GetInventory;
 
-public class GetInventoryQueryHandler :
-        IQueryHandler<GetInventoryQueryParameters, GetInventoryQueryResult>
+public class GetInventoryQueryHandler : IQueryHandler<GetInventoryQuery, GetInventoryQueryResult>
 {
     private readonly IInventoryRepository _inventoryRepository;
 
@@ -10,8 +9,8 @@ public class GetInventoryQueryHandler :
         _inventoryRepository = inventoryRepository ?? throw new ArgumentNullException(nameof(inventoryRepository));
     }
 
-    public async Task<GetInventoryQueryResult> HandleAsync(
-            GetInventoryQueryParameters parameters,
+    public async Task<GetInventoryQueryResult> Handle(
+            GetInventoryQuery parameters,
             CancellationToken cancellationToken = default)
     {
         var inventory = await _inventoryRepository.GetProductInventoryAsync(

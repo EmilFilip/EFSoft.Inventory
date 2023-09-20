@@ -1,6 +1,6 @@
 ﻿namespace EFSoft.Inventory.Infrastructure.DBContexts;
 
-    public class InventoryDBContext : DbContext
+public class InventoryDBContext : DbContext
 {
     public InventoryDBContext(DbContextOptions options) : base(options)
     {

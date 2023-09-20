@@ -1,8 +1,8 @@
-﻿namespace EFSoft.Inventory.Application.Commands.Parameters;
+﻿namespace EFSoft.Inventory.Application.Commands.UpdateInventory;
 
-public class UpdateInventoryCommandParameters : ICommand
+public class UpdateInventoryCommand : ICommand
 {
-    public UpdateInventoryCommandParameters(
+    public UpdateInventoryCommand(
          Guid productId,
          int stockLeft)
     {
