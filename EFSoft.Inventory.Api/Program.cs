@@ -4,9 +4,13 @@ if (!builder.Environment.IsDevelopment())
 {
     var appConfigurationConnectionString = builder.Configuration.GetValue<string>("AppConfigurationConnectionString");
 
-    builder.Configuration.AddAzureAppConfiguration(config =>
+    builder.Configuration.AddAzureAppConfiguration(options =>
     {
-        config.Connect(appConfigurationConnectionString);
+        options.Connect(appConfigurationConnectionString)
+                .ConfigureRefresh(refresh =>
+                {
+                    refresh.Register("Settings:Sentinel", refreshAll: true).SetCacheExpiration(new TimeSpan(0, 1, 0));
+                });
     });
 }
 
@@ -39,7 +43,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+if (!app.Environment.IsDevelopment())
+{
+    app.UseAzureAppConfiguration();
+}
 app.UseAuthorization();
 
 app.Run();
