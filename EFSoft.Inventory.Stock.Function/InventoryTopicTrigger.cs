@@ -21,8 +21,8 @@ public class InventoryTopicTrigger
         var orderPlacedMessage = JsonSerializer.Deserialize<OrderPlaced>(myTopicMessage);
 
         var parameters = new DecreaseInventoryStockCommand(
-            productId: orderPlacedMessage.ProductId,
-            stockToSubtract: orderPlacedMessage.Quantity);
+            ProductId: orderPlacedMessage.ProductId,
+            StockToSubtract: orderPlacedMessage.Quantity);
         
         await _mediator.Send(parameters);
     }
