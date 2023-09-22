@@ -6,7 +6,7 @@ public class DecreaseInventoryStockCommandHandler : ICommandHandler<DecreaseInve
 
     public DecreaseInventoryStockCommandHandler(IInventoryRepository inventoryRepository)
     {
-        _inventoryRepository = inventoryRepository ?? throw new ArgumentNullException(nameof(inventoryRepository));
+        _inventoryRepository = inventoryRepository;
     }
 
     public async Task Handle(

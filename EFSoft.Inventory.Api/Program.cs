@@ -33,20 +33,17 @@ var app = builder.Build();
 app.MapInventoryEndpoints();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "Inventory Microservice V1");
     });
-}
+//}
 
 app.UseHttpsRedirection();
-if (!app.Environment.IsDevelopment())
-{
-    app.UseAzureAppConfiguration();
-}
+
 app.UseAuthorization();
 
 app.Run();

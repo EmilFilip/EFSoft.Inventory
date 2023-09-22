@@ -6,7 +6,7 @@ public class CreateInventoryCommandHandler : ICommandHandler<CreateInventoryComm
 
     public CreateInventoryCommandHandler(IInventoryRepository inventoryRepository)
     {
-        _inventoryRepository = inventoryRepository ?? throw new ArgumentNullException(nameof(inventoryRepository));
+        _inventoryRepository = inventoryRepository;
     }
 
     public async Task Handle(

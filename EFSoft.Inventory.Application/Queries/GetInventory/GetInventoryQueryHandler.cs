@@ -6,7 +6,7 @@ public class GetInventoryQueryHandler : IQueryHandler<GetInventoryQuery, GetInve
 
     public GetInventoryQueryHandler(IInventoryRepository inventoryRepository)
     {
-        _inventoryRepository = inventoryRepository ?? throw new ArgumentNullException(nameof(inventoryRepository));
+        _inventoryRepository = inventoryRepository;
     }
 
     public async Task<GetInventoryQueryResult> Handle(
