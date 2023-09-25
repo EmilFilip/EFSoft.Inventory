@@ -18,6 +18,8 @@ public class DecreaseInventoryStockCommandHandler : ICommandHandler<DecreaseInve
 
         inventoryModel.DecreaseInventoryStock(command.StockToSubtract);
 
-        await _inventoryRepository.UpdateProductInventoryAsync(inventoryModel);
+        await _inventoryRepository.UpdateProductInventoryAsync(
+            inventoryModel,
+            cancellationToken);
     }
 }

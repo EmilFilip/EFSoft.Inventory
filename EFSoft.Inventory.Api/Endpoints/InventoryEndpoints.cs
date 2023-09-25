@@ -1,4 +1,6 @@
-﻿namespace EFSoft.Inventory.Api.Endpoints;
+﻿using System.Threading;
+
+namespace EFSoft.Inventory.Api.Endpoints;
 
 public static class InventoryEndpoints
 {
@@ -13,9 +15,12 @@ public static class InventoryEndpoints
 
     public static async Task<Results<Ok<GetInventoryQueryResult>, NotFound>> Get(
         Guid productId,
-        IMediator mediator)
+        IMediator mediator,
+        CancellationToken cancellationToken)
     {
-        var results = await mediator.Send(new GetInventoryQuery(productId));
+        var results = await mediator.Send(
+            new GetInventoryQuery(productId),
+            cancellationToken);
 
         if (results == null)
         {
@@ -27,18 +32,24 @@ public static class InventoryEndpoints
 
     public static async Task<IResult> Post(
         [FromBody] CreateInventoryCommand parameters,
-        IMediator mediator)
+        IMediator mediator,
+        CancellationToken cancellationToken)
     {
-        await mediator.Send(parameters);
+        await mediator.Send(
+            parameters,
+            cancellationToken);
 
         return Results.Ok();
     }
 
     public static async Task<IResult> Put(
         [FromBody] UpdateInventoryCommand parameters,
-        IMediator mediator)
+        IMediator mediator,
+        CancellationToken cancellationToken)
     {
-        await mediator.Send(parameters);
+        await mediator.Send(
+            parameters,
+            cancellationToken);
 
         return Results.Ok();
     }

@@ -1,4 +1,7 @@
-﻿namespace EFSoft.Inventory.Infrastructure.Configuration;
+﻿using EFSoft.Inventory.Application.Commands.CreateInventory;
+using EFSoft.Shared.Cqrs.Configuration;
+
+namespace EFSoft.Inventory.Infrastructure.Configuration;
 
 [ExcludeFromCodeCoverage]
 public static class ServicesInstaller
@@ -8,6 +11,7 @@ public static class ServicesInstaller
                     IConfiguration configuration)
     {
         return services
+             .RegisterCqrs(typeof(CreateInventoryCommand).Assembly)
              .AddDbContext<InventoryDBContext>(
                 options =>
                 {

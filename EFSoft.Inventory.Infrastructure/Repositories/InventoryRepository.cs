@@ -13,9 +13,11 @@ public class InventoryRepository : IInventoryRepository
         Guid productId,
         CancellationToken cancellationToken = default)
     {
-        var entity = await _inventoryDbContext.Inventories.FirstOrDefaultAsync(
-            p => p.ProductId == productId,
-            cancellationToken: cancellationToken);
+        var entity = await _inventoryDbContext.Inventories
+            .AsQueryable()
+            .AsNoTracking()
+            .FirstOrDefaultAsync(p => p.ProductId == productId,
+                                cancellationToken: cancellationToken);
 
         if (entity == null)
         {
@@ -41,9 +43,11 @@ public class InventoryRepository : IInventoryRepository
         ProductInventoryModel inventory,
         CancellationToken cancellationToken = default)
     {
-        var entity = await _inventoryDbContext.Inventories.FirstOrDefaultAsync(
-            p => p.ProductId == inventory.ProductId,
-            cancellationToken: cancellationToken);
+        var entity = await _inventoryDbContext.Inventories
+            .AsQueryable()
+            .AsNoTracking()
+            .FirstOrDefaultAsync(p => p.ProductId == inventory.ProductId,
+                                cancellationToken: cancellationToken);
 
         if (entity != null)
         {

@@ -17,6 +17,8 @@ public class CreateInventoryCommandHandler : ICommandHandler<CreateInventoryComm
             productId: command.ProductId,
             stockLeft: command.StockLeft);
 
-        await _inventoryRepository.CreateProductInventoryAsync(inventoryModel);
+        await _inventoryRepository.CreateProductInventoryAsync(
+            inventoryModel,
+            cancellationToken);
     }
 }

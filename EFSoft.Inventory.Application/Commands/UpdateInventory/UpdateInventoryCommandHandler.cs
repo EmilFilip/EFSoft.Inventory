@@ -17,6 +17,8 @@ public class UpdateInventoryCommandHandler : ICommandHandler<UpdateInventoryComm
             productId: command.ProductId,
             stockLeft: command.StockLeft);
 
-        await _inventoryRepository.UpdateProductInventoryAsync(inventoryModel);
+        await _inventoryRepository.UpdateProductInventoryAsync(
+            inventoryModel,
+            cancellationToken);
     }
 }
