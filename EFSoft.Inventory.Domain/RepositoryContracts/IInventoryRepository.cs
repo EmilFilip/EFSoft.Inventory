@@ -1,4 +1,6 @@
-﻿namespace EFSoft.Inventory.Application.RepositoryContracts;
+﻿using EFSoft.Inventory.Domain.Models;
+
+namespace EFSoft.Inventory.Domain.RepositoryContracts;
 
 public interface IInventoryRepository
 {
