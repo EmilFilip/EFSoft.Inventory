@@ -2,6 +2,4 @@
 
 public sealed record class CreateInventoryCommand(
          Guid ProductId,
-         int StockLeft) : ICommand
-{
-}
+         int StockLeft) : ICommand;

@@ -16,12 +16,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EFSoft.Inventory.Application\EFSoft.Inventory.Application.csproj" />
-    <ProjectReference Include="..\EFSoft.Inventory.Domain\EFSoft.Inventory.Domain.csproj" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
+    <ProjectReference Include="..\EFSoft.Inventory.Application\EFSoft.Inventory.Application.csproj" />
   </ItemGroup>
 
 </Project>

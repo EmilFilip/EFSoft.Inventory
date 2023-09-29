@@ -2,6 +2,4 @@
 
 public sealed record class UpdateInventoryCommand(
          Guid ProductId,
-         int StockLeft) : ICommand
-{
-}
+         int StockLeft) : ICommand;

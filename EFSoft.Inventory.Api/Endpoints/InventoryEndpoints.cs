@@ -1,6 +1,4 @@
-﻿using System.Threading;
-
-namespace EFSoft.Inventory.Api.Endpoints;
+﻿namespace EFSoft.Inventory.Api.Endpoints;
 
 public static class InventoryEndpoints
 {
