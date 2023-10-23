@@ -1,0 +1,51 @@
+﻿apiVersion: v1
+kind: Service
+metadata:
+  name: svc-efsoft-services-inventoryfunctionapi
+  labels:
+    version: dev
+    product: efsoft-services-inventoryfunctionapi
+spec:
+  selector:
+    app: efsoft-services-inventoryfunctionapi
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 80
+    protocol: TCP
+    name: http
+  - port: 443
+    targetPort: 443
+    protocol: TCP
+    name: https
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-efsoft-services-inventoryfunctionapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: efsoft-services-inventoryfunctionapi
+  template:
+    metadata:
+      labels:
+        app: efsoft-services-inventoryfunctionapi
+    spec:
+      containers:
+      - name: efsoft-services-inventoryfunctionapi
+        image: efsoft.azurecr.io/efsoft_inventory_function:v1
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Production
+        - name: ASPNETCORE_URLS
+          value: http://+:80
+        - name: ConnectionStrings__InventoryConnectionString
+          valueFrom: 
+            secretKeyRef:
+              name: inventory-db
+              key: InventoryConnectionString
+        ports:
+        - containerPort: 80
+        - containerPort: 443
