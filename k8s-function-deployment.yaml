@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
       - name: efsoft-services-inventoryfunctionapi
-        image: efsoft.azurecr.io/efsoft-inventory-function:v1
+        image: efsoft.azurecr.io/efsoft-inventory-function
         env:
         - name: ASPNETCORE_ENVIRONMENT
           value: Production
