@@ -8,7 +8,7 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:7.0-alpine AS build
 WORKDIR /src
 
-COPY ["NuGet.Config", "."]
+COPY ["NuGet.Config", ""]
 COPY ["EFSoft.Inventory.Stock.Function/EFSoft.Inventory.Stock.Function.csproj", "EFSoft.Inventory.Stock.Function/"]
 COPY ["EFSoft.Inventory.Application/EFSoft.Inventory.Application.csproj", "EFSoft.Inventory.Application/"]
 COPY ["EFSoft.Inventory.Infrastructure/EFSoft.Inventory.Infrastructure.csproj", "EFSoft.Inventory.Infrastructure/"]
