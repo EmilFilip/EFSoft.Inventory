@@ -13,7 +13,7 @@ stages:
         containerRegistry: 'efsoft'
         command: 'build'
         repository: 'efsoft-inventory-function'
-        dockerfile: '**/Dockerfile'
+        dockerfile: '**/DockerfileFunction'
         arguments: '--build-arg NUGET_PASSWORD=$(PAT)'
         tags: latest
     - task: Docker@2
