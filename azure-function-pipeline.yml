@@ -21,6 +21,7 @@ stages:
       inputs:
         containerRegistry: 'efsoft'
         repository: 'efsoft-inventory-function'
+        command: 'push'
         tags: latest
     - task: CopyFiles@2
       inputs:
