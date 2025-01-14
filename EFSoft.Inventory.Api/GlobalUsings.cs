@@ -1,10 +1,11 @@
-﻿global using EFSoft.Inventory.Api.Endpoints;
-global using EFSoft.Inventory.Application.Commands.CreateInventory;
-global using EFSoft.Inventory.Application.Commands.UpdateInventory;
-global using EFSoft.Inventory.Application.Queries.GetInventory;
+﻿global using Carter;
+global using EFSoft.Inventory.Api.CreateInventory;
+global using EFSoft.Inventory.Api.GetInventory;
+global using EFSoft.Inventory.Api.UpdateInventory;
+global using EFSoft.Inventory.Application.CreateInventory;
+global using EFSoft.Inventory.Application.UpdateInventory;
 global using EFSoft.Inventory.Infrastructure.Configuration;
-
+global using FluentValidation;
 global using MediatR;
-
 global using Microsoft.AspNetCore.Http.HttpResults;
 global using Microsoft.AspNetCore.Mvc;
