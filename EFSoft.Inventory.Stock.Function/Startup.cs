@@ -7,8 +7,8 @@ public class Startup : FunctionsStartup
 {
     public override void Configure(IFunctionsHostBuilder builder)
     {
-        IConfiguration configuration = builder.GetContext().Configuration;
-        builder.Services.RegisterLocalServices(configuration);
-        builder.Services.RegisterCqrs(typeof(DecreaseInventoryStockCommand).Assembly);
+        var configuration = builder.GetContext().Configuration;
+        _ = builder.Services.RegisterLocalServices(configuration);
+        _ = builder.Services.RegisterCqrs(typeof(DecreaseInventoryStockCommand).Assembly);
     }
 }
