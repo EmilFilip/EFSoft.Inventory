@@ -1,6 +1,6 @@
 ﻿namespace EFSoft.Inventory.Infrastructure.Repositories;
 
-public class GetProductInventory(InventoryDBContext inventoryDbContext) : IGetProductInventory
+public class GetProductInventoryRepository(InventoryDBContext inventoryDbContext) : IGetProductInventoryRepository
 {
     public async Task<ProductInventoryModel?> GetProductInventoryAsync(
         Guid productId,

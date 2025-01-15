@@ -5,7 +5,6 @@ global using EFSoft.Inventory.Api.UpdateInventory;
 global using EFSoft.Inventory.Application.CreateInventory;
 global using EFSoft.Inventory.Application.UpdateInventory;
 global using EFSoft.Inventory.Infrastructure.Configuration;
-global using FluentValidation;
 global using MediatR;
 global using Microsoft.AspNetCore.Http.HttpResults;
 global using Microsoft.AspNetCore.Mvc;

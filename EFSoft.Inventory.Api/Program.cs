@@ -15,13 +15,10 @@ if (!builder.Environment.IsDevelopment())
 }
 
 builder.Services.AddCarter();
-// Add services to the container.
 builder.Services.AddEndpointsApiExplorer();
 builder.Configuration.AddEnvironmentVariables();
-builder.Services.AddValidatorsFromAssemblyContaining<CreateInventoryRequestValidator>();
 builder.Services.AddHealthChecks();
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Inventory Microservice", Version = "v1" });
@@ -32,7 +29,8 @@ builder.Services.RegisterLocalServices(builder.Configuration);
 var app = builder.Build();
 app.MapCarter();
 
-// Configure the HTTP request pipeline.
+app.MapHealthChecks("/health");
+
 if (app.Environment.IsDevelopment())
 {
     _ = app.UseSwagger();

@@ -1,8 +1,8 @@
 ﻿namespace EFSoft.Inventory.Application.DecreaseInventory;
 
 public class DecreaseInventoryStockCommandHandler(
-    IUpdateProductInventory updateProductInventory,
-    IGetProductInventory getProductInventory) : ICommandHandler<DecreaseInventoryStockCommand>
+    IUpdateProductInventoryRepository updateProductInventory,
+    IGetProductInventoryRepository getProductInventory) : ICommandHandler<DecreaseInventoryStockCommand>
 {
     public async Task Handle(
         DecreaseInventoryStockCommand command,

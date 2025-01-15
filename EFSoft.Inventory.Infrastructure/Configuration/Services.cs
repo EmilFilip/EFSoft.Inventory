@@ -17,8 +17,8 @@ public static class Services
                         _ = sqlServeroptions.EnableRetryOnFailure();
                     });
                 })
-             .AddScoped<ICreateProductInventory, CreateProductInventory>()
-             .AddScoped<IGetProductInventory, GetProductInventory>()
-             .AddScoped<IUpdateProductInventory, UpdateProductInventory>();
+             .AddScoped<ICreateProductInventoryRepository, CreateProductInventoryRepository>()
+             .AddScoped<IGetProductInventoryRepository, GetProductInventoryRepository>()
+             .AddScoped<IUpdateProductInventoryRepository, UpdateProductInventoryRepository>();
     }
 }

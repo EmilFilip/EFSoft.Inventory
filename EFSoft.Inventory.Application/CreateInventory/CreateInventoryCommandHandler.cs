@@ -1,6 +1,6 @@
 ﻿namespace EFSoft.Inventory.Application.CreateInventory;
 
-public class CreateInventoryCommandHandler(ICreateProductInventory createProductInventory)
+public class CreateInventoryCommandHandler(ICreateProductInventoryRepository createProductInventory)
     : ICommandHandler<CreateInventoryCommand>
 {
     public async Task Handle(

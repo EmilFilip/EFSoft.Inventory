@@ -1,6 +1,6 @@
 ﻿namespace EFSoft.Inventory.Domain.RepositoryContracts;
 
-public interface IGetProductInventory
+public interface IGetProductInventoryRepository
 {
     Task<ProductInventoryModel?> GetProductInventoryAsync(
         Guid productInventory,

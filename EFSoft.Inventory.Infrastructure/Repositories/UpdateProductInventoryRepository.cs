@@ -1,6 +1,6 @@
 ﻿namespace EFSoft.Inventory.Infrastructure.Repositories;
 
-public class UpdateProductInventory(InventoryDBContext inventoryDbContext) : IUpdateProductInventory
+public class UpdateProductInventoryRepository(InventoryDBContext inventoryDbContext) : IUpdateProductInventoryRepository
 {
     public async Task UpdateProductInventoryAsync(
         ProductInventoryModel inventory,

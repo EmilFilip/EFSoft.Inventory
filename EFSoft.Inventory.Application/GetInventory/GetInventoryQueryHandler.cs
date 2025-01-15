@@ -1,6 +1,6 @@
 ﻿namespace EFSoft.Inventory.Application.GetInventory;
 
-public class GetInventoryQueryHandler(IGetProductInventory getProductInventory)
+public class GetInventoryQueryHandler(IGetProductInventoryRepository getProductInventory)
     : IQueryHandler<GetInventoryQuery, GetInventoryQueryResult?>
 {
     public async Task<GetInventoryQueryResult?> Handle(

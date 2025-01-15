@@ -1,6 +1,6 @@
 ﻿namespace EFSoft.Inventory.Application.UpdateInventory;
 
-public class UpdateInventoryCommandHandler(IUpdateProductInventory updateProductInventory)
+public class UpdateInventoryCommandHandler(IUpdateProductInventoryRepository updateProductInventory)
     : ICommandHandler<UpdateInventoryCommand>
 {
     public async Task Handle(

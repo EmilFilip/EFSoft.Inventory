@@ -1,6 +1,6 @@
 ﻿namespace EFSoft.Inventory.Infrastructure.Repositories;
 
-public class CreateProductInventory(InventoryDBContext inventoryDbContext) : ICreateProductInventory
+public class CreateProductInventoryRepository(InventoryDBContext inventoryDbContext) : ICreateProductInventoryRepository
 {
     public async Task CreateProductInventoryAsync(
         ProductInventoryModel inventory,

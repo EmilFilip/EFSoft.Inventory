@@ -1,8 +1,8 @@
 ﻿namespace EFSoft.Inventory.Domain.RepositoryContracts;
 
-public interface ICreateProductInventory
+public interface IUpdateProductInventoryRepository
 {
-    Task CreateProductInventoryAsync(
+    Task UpdateProductInventoryAsync(
         ProductInventoryModel inventory,
         CancellationToken cancellationToken = default);
 }
