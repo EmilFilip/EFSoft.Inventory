@@ -52,8 +52,8 @@ steps:
   displayName: 'Publish Project(s)'
   inputs:
     command: 'publish'
-    projects: '**/*.csproj'
-    arguments: '--configuration $(buildConfiguration) --no-restore --output $(Build.ArtifactStagingDirectory)'
+    projects: '**/EFSoft.Inventory.Stock.Function.csproj'
+    arguments: '--output $(Build.BinariesDirectory)/publish_output --configuration Release'
 
 # Publish to pipeline artifacts
 - task: PublishPipelineArtifact@1
