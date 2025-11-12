@@ -1,7 +1,6 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+# .NET 8 CI Pipeline
+# Builds, tests, and publishes .NET 8 projects using Azure Pipelines.
+# Compatible with Ubuntu 24.04+ (no Mono required)
 
 trigger:
 - master
@@ -9,44 +8,57 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+  buildConfiguration: 'Release'
+
 steps:
+# Use the latest .NET 9 SDK
 - task: UseDotNet@2
   displayName: 'Use .NET 8 SDK'
   inputs:
     packageType: 'sdk'
-    version: '8.0.x'
-    includePreviewVersions: true
+    version: '9.0.x'
+    includePreviewVersions: false
 
-- task: NuGetToolInstaller@1
-  displayName: 'Install NuGet Tool'
-  inputs:
-    versionSpec: '6.x.x'
-    checkLatest: true
-
-- task: NuGetCommand@2
+# Restore dependencies from Azure Artifacts
+- task: DotNetCoreCLI@2
   displayName: 'Restore NuGet Packages'
   inputs:
     command: 'restore'
-    restoreSolution: '**/*.sln'
+    projects: '**/*.sln'
     feedsToUse: 'select'
-    vstsFeed: 'b461ee19-0e11-4e29-a84b-881602ea8e3e'
+    vstsFeed: 'emilfilip3'   # Replace with your actual feed name or ID
 
+# Build solution
 - task: DotNetCoreCLI@2
+  displayName: 'Build Solution'
   inputs:
     command: 'build'
-    projects: '**/EFSoft.Inventory.Stock.Function.csproj'
-    arguments: '--output $(Build.BinariesDirectory)/publish_output --configuration Release'
+    projects: '**/*.sln'
+    arguments: '--configuration $(buildConfiguration) --no-restore'
 
-- task: ArchiveFiles@2
+# Run unit tests
+- task: DotNetCoreCLI@2
+  displayName: 'Run Unit Tests'
   inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)/publish_output'
-    includeRootFolder: false
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
+    command: 'test'
+    projects: '**/*.UnitTests.csproj'
+    arguments: '--configuration $(buildConfiguration) --no-restore'
+    publishTestResults: true
+    testRunTitle: 'Unit-Test-Run-$(Build.BuildId)'
 
-- task: PublishBuildArtifacts@1
+# Publish artifacts
+- task: DotNetCoreCLI@2
+  displayName: 'Publish Project(s)'
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+    command: 'publish'
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration) --no-restore --output $(Build.ArtifactStagingDirectory)'
+
+# Publish to pipeline artifacts
+- task: PublishPipelineArtifact@1
+  displayName: 'Publish Artifacts'
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)'
+    artifact: 'BuildOutput'
+    publishLocation: 'pipeline'
