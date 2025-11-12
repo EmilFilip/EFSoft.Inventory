@@ -8,7 +8,6 @@ public class UpdateProductInventoryRepository(InventoryDBContext inventoryDbCont
     {
         var entity = await inventoryDbContext.Inventories
             .AsQueryable()
-            .AsNoTracking()
             .FirstOrDefaultAsync(p => p.ProductId == inventory.ProductId,
                                 cancellationToken: cancellationToken);
 
